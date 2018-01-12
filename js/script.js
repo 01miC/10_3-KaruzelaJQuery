@@ -27,14 +27,14 @@ $(function(){
 
   function changeSlide(){
     carouselList.animate({'marginLeft':-600}, 1000, moveFirstSlide);
-    interVal;
+    setInterval(changeSlide,2500);
   };
   
 
   function moveFirstSlide() {
     moveImage();
     carouselList.css({marginLeft:0});
-    interVal;
+    setInterval(changeSlide,2500);
   };
 
   function moveLeft() {
@@ -49,7 +49,7 @@ $(function(){
   function moveRight() {
      stopInterval();  
     carouselList.stop().animate({'marginLeft': -600},500, moveImage);
-    interVal;
+    setInterval(changeSlide,2500);
   };
   
   function stopInterval() {
