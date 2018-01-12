@@ -27,22 +27,17 @@ $(function(){
 
   function changeSlide(){
     carouselList.animate({'marginLeft':-600}, 1000, moveFirstSlide);
-
   };
   
 
   function moveFirstSlide() {
     moveImage();
     carouselList.css({marginLeft:0});
-    setInterval(changeSlide,2500);
   };
 
   function moveLeft() {
-    if (imagePosition.lenght) {
-
-    }
     stopInterval();
-    carouselList.stop().animate({'marginLeft': +600},500);;
+    carouselList.stop().animate({'marginLeft': +600},500);
     firstItem.after(lastItem);
   };
 
