@@ -42,7 +42,9 @@ $(function(){
   };  
 
   function moveFirstSlide() {
-    moveImage();
+    var firstItem = carouselList.find("li:first");
+    var lastItem = carouselList.find("li:last");
+    lastItem.after(firstItem);
     dotNavi();
     carouselList.css({marginLeft:0});
   };
@@ -51,15 +53,19 @@ $(function(){
     var firstItem = carouselList.find("li:first"); 
     var lastItem = carouselList.find("li:last");
 
-        stopInterval();
-    firstItem.before(lastItem).css({'marginLeft': -600});
-    firstItem.animate({'marginLeft':+600}, 2000, function () {firstItem.css({marginLeft:0})});
-    carouselList.stop().animate({'marginLeft': 0 },500, function() {carouselList.css({marginLeft:0});} );
-    interVal = setInterval(changeSlide,1500);
+    stopInterval();
+    
+    //lastItem.animate({'marginRight':600}, 500);
+    carouselList.animate({'marginLeft': +600},1000);//.animate({'marginLeft': 0 },1000);
+    firstItem.before(lastItem);
+    carouselList.css({'marginLeft':0});
+        interVal = setInterval(changeSlide,1500);
   };
 
   function moveRight() {
+    
     stopInterval();  
+    
     carouselList.animate({'marginLeft': -600},500, moveFirstSlide);
     interVal = setInterval(changeSlide,1500);
   };
@@ -92,4 +98,10 @@ $(function(){
       i=1;
     }
   }
+
+  function multiplay(a,b) {
+    var c = a*b;
+    console.log(c);
+  }
+  multiplay(2,3);
 });
