@@ -55,17 +55,16 @@ $(function(){
 
     stopInterval();
     
-    //lastItem.animate({'marginRight':600}, 500);
-    carouselList.animate({'marginLeft': +600},1000);//.animate({'marginLeft': 0 },1000);
     firstItem.before(lastItem);
-    carouselList.css({'marginLeft':0});
+    carouselList.css({'marginLeft':-600});
+    carouselList.animate({'marginLeft': +600},300, function() {carouselList.css({marginLeft:0});});
+    dotNavi();
+   
         interVal = setInterval(changeSlide,1500);
   };
 
   function moveRight() {
-    
     stopInterval();  
-    
     carouselList.animate({'marginLeft': -600},500, moveFirstSlide);
     interVal = setInterval(changeSlide,1500);
   };
