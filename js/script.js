@@ -57,7 +57,7 @@ $(function(){
     
     firstItem.before(lastItem);
     carouselList.css({'marginLeft':-600});
-    carouselList.animate({'marginLeft': +600},300, function() {carouselList.css({marginLeft:0});});
+    carouselList.animate({'marginLeft': 0}, 300);
     dotNavi();
    
         interVal = setInterval(changeSlide,1500);
